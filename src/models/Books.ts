@@ -1,19 +1,22 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("users")
-export class Users {
-  @PrimaryGeneratedColumn({ type: "int", name: "user_id" })
-  userId: number;
+@Entity("books")
+export class Books {
+  @PrimaryGeneratedColumn({ type: "int", name: "bookId" })
+  bookId: number;
 
-  @Column("varchar", { name: "firstName", length: 100 })
-  firstName: string;
+  @Column("varchar", { name: "bookName", length: 100 })
+  bookName: string;
 
-  @Column("varchar", { name: "lastName", length: 100 })
-  lastName: string;
+  @Column("int", { name: "bookPrice", nullable: true })
+  bookPrice: number | null;
 
-  @Column("varchar", { name: "emailAddress", nullable: true, length: 100 })
-  emailAddress: string | null;
+  @Column("enum", { name: "bookGenre", enum: ["Novel", "Fiction", "Mystery"] })
+  bookGenre: "Novel" | "Fiction" | "Mystery";
 
-  @Column("varchar", { name: "password", length: 100 })
-  password: string;
+  @Column("year", { name: "yearPublished" })
+  yearPublished: number;
+
+  @Column("tinyint", { name: "isPublished?", default: () => "'0'" })
+  isPublished: number;
 }
