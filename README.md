@@ -49,11 +49,3 @@ The Book Management System is a MERN stack application that focuses on managing 
 3. Install dependencies: `npm install`
 4. Set up your environment variables for database connection and JWT secret.
 5. Run the server: `npm start`
-
-## Contributing
-
-Feel free to contribute to the project by opening issues or creating pull requests. Follow the [Contribution Guidelines](CONTRIBUTING.md) for more details.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
