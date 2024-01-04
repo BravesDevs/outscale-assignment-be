@@ -5,3 +5,8 @@ export enum bookRoutes {
   USER_BOOKS = "/books/user",
   PUBLISHED_BOOKS = "/books/published",
 }
+
+export enum userRoutes {
+  REGISTER_USER = "/auth/signup",
+  LOGIN_USER = "/auth/login",
+}
