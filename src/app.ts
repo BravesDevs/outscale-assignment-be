@@ -1,9 +1,7 @@
 import { default as express } from "express";
 import { default as cors } from "cors";
 import { config } from "./configurations/config";
-import { createConnection } from "typeorm";
 import { bookRoutes, userRoutes } from "./routes";
-import { ormConfig } from "./configurations/database/ormconfig";
 class App {
   private port: number;
   private app: express.Application;
@@ -11,15 +9,8 @@ class App {
   constructor(port: number) {
     this.port = port;
     this.app = express();
-    this.createDBConnections();
     this.initializeMiddlewares();
     this.initializeRoutes();
-  }
-
-  private createDBConnections() {
-    // Create MySQL Connection
-    createConnection(ormConfig);
-    console.log("MySQL Connection Created");
   }
 
   private initializeMiddlewares() {
