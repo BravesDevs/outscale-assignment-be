@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BookAuthors } from "./BookAuthors";
 
 @Entity("books")
 export class Books {
@@ -19,4 +20,7 @@ export class Books {
 
   @Column("tinyint", { name: "isPublished?", default: () => "'0'" })
   isPublished: number;
+
+  @OneToMany(() => BookAuthors, (bookAuthors) => bookAuthors.book)
+  bookAuthors: BookAuthors[];
 }
