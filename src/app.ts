@@ -1,8 +1,7 @@
 import { default as express } from "express";
 import { default as cors } from "cors";
 import { config } from "./configurations/config";
-import { createConnection } from "typeorm";
-import { bookRoutes } from "./routes";
+import { bookRoutes, userRoutes } from "./routes";
 class App {
   private port: number;
   private app: express.Application;
@@ -38,6 +37,7 @@ class App {
 
   private initializeRoutes() {
     this.app.use("/api", bookRoutes);
+    this.app.use("/api", userRoutes);
   }
 
   public Start() {
