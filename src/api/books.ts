@@ -1,4 +1,8 @@
-import { publishBookService, searchBooksService } from "../services";
+import {
+  publishBookService,
+  searchBooksService,
+  unpublishBookService,
+} from "../services";
 
 export const publishBookController = async (req, res, next) => {
   try {
@@ -12,6 +16,15 @@ export const publishBookController = async (req, res, next) => {
 export const searchBooksController = async (req, res, next) => {
   try {
     const response = await searchBooksService(req.query.title);
+    res.status(200).json({ success: true, data: response });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+export const unpublishBookController = async (req, res, next) => {
+  try {
+    const response = await unpublishBookService(req.params.bookId);
     res.status(200).json({ success: true, data: response });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });

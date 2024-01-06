@@ -58,3 +58,20 @@ export const searchBooksService = async (query) => {
     throw new Error(error);
   }
 };
+
+export const unpublishBookService = async (bookId) => {
+  try {
+    const response = await prisma.books.update({
+      where: {
+        bookId: parseInt(bookId),
+      },
+      data: {
+        isPublished_: 0,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.log(error.message);
+    throw new Error(error);
+  }
+};
