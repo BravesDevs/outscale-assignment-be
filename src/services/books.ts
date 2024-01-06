@@ -40,3 +40,21 @@ export const publishBookService = async (
     throw new Error(error);
   }
 };
+
+export const searchBooksService = async (query) => {
+  try {
+    const books = await prisma.books.findMany({
+      where: {
+        bookName: {
+          contains: query,
+        },
+      },
+      include: {
+        bookAuthors: true,
+      },
+    });
+    return books;
+  } catch (error) {
+    throw new Error(error);
+  }
+};

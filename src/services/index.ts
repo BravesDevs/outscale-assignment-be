@@ -1,3 +1,3 @@
-export { publishBookService } from "./books";
+export { publishBookService, searchBooksService } from "./books";
 
 export { registerUserService, loginUserService } from "./users";
