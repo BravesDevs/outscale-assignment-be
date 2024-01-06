@@ -1,8 +1,9 @@
 import { publishBookService } from "../services";
 export const publishBookController = async (req, res, next) => {
   try {
-    return res.status(200).send(await publishBookService(req.body));
+    const response = await publishBookService(req.body);
+    res.status(200).json({ success: true, data: response });
   } catch (err) {
-    next(err);
+    res.status(500).json({ success: false, error: err.message });
   }
 };
