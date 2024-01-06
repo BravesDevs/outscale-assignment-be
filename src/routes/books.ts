@@ -1,6 +1,27 @@
 const express = require("express");
 import { bookRoutes } from "../common/constants";
 export const router = express.Router();
-import { publishBookController } from "../api";
+import {
+  publishBookController,
+  searchBooksController,
+  unpublishBookController,
+  getUserBooksController,
+  getPublishedBooksController,
+} from "../api";
+import { authorizeJwtToken } from "../middlewares";
 
-router.route(bookRoutes.PUBLISH_BOOK).post(publishBookController);
+router
+  .route(bookRoutes.PUBLISH_BOOK)
+  .post(authorizeJwtToken, publishBookController);
+
+router.route(bookRoutes.SEARCH_BOOKS).get(searchBooksController);
+
+router
+  .route(bookRoutes.UNPUBLISH_BOOK)
+  .put(authorizeJwtToken, unpublishBookController);
+
+router
+  .route(bookRoutes.USER_BOOKS)
+  .get(authorizeJwtToken, getUserBooksController);
+
+router.route(bookRoutes.PUBLISHED_BOOKS).get(getPublishedBooksController);
