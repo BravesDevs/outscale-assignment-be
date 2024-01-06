@@ -6,6 +6,7 @@ import {
   searchBooksController,
   unpublishBookController,
   getUserBooksController,
+  getPublishedBooksController,
 } from "../api";
 import { authorizeJwtToken } from "../middlewares";
 
@@ -22,3 +23,5 @@ router
 router
   .route(bookRoutes.USER_BOOKS)
   .get(authorizeJwtToken, getUserBooksController);
+
+router.route(bookRoutes.PUBLISHED_BOOKS).get(getPublishedBooksController);

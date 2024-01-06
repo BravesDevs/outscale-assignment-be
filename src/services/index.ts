@@ -2,7 +2,8 @@ export {
   publishBookService,
   searchBooksService,
   unpublishBookService,
-  getUserBooks,
+  getUserBooksService,
+  getPublishedBooksService,
 } from "./books";
 
 export { registerUserService, loginUserService } from "./users";
