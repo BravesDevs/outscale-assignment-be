@@ -2,6 +2,7 @@ import {
   publishBookService,
   searchBooksService,
   unpublishBookService,
+  getUserBooks,
 } from "../services";
 
 export const publishBookController = async (req, res, next) => {
@@ -25,6 +26,15 @@ export const searchBooksController = async (req, res, next) => {
 export const unpublishBookController = async (req, res, next) => {
   try {
     const response = await unpublishBookService(req.params.bookId);
+    res.status(200).json({ success: true, data: response });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+export const getUserBooksController = async (req, res, next) => {
+  try {
+    const response = await getUserBooks(req.user.id);
     res.status(200).json({ success: true, data: response });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });

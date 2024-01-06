@@ -5,6 +5,7 @@ import {
   publishBookController,
   searchBooksController,
   unpublishBookController,
+  getUserBooksController,
 } from "../api";
 import { authorizeJwtToken } from "../middlewares";
 
@@ -17,3 +18,7 @@ router.route(bookRoutes.SEARCH_BOOKS).get(searchBooksController);
 router
   .route(bookRoutes.UNPUBLISH_BOOK)
   .put(authorizeJwtToken, unpublishBookController);
+
+router
+  .route(bookRoutes.USER_BOOKS)
+  .get(authorizeJwtToken, getUserBooksController);

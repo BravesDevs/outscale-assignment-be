@@ -15,6 +15,7 @@ export const authorizeJwtToken = (req, res, next) => {
     // Return unauthorized error response if token is not valid
     return res.status(401).send("Unauthorized");
   }
+  console.log(tokenData);
   req.user = tokenData;
   return next();
 };

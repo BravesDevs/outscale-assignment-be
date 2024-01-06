@@ -75,3 +75,21 @@ export const unpublishBookService = async (bookId) => {
     throw new Error(error);
   }
 };
+
+export const getUserBooks = async (userId) => {
+  try {
+    const books = await prisma.books.findMany({
+      where: {
+        bookAuthors: {
+          some: {
+            authorId: userId,
+          },
+        },
+        isPublished_: 1,
+      },
+    });
+    return books;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
