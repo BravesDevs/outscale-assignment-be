@@ -19,12 +19,11 @@ export const registerUserController = async (req, res, next) => {
 export const loginUserController = async (req, res, next) => {
   try {
     const { emailAddress, password } = req.body;
-    return res.status(200).send(
-      await loginUserService({
-        emailAddress,
-        password,
-      })
-    );
+    const token = await loginUserService({
+      emailAddress,
+      password,
+    });
+    return res.status(200).json({ token });
   } catch (error) {
     next(error);
   }

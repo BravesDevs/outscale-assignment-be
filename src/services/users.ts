@@ -78,7 +78,8 @@ export const loginUserService = async (user: User) => {
         id: userExists.userId,
         emailAddress: userExists.emailAddress,
       },
-      process.env.JWT_SECRET_KEY
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: "1h" }
     );
 
     // Return token
