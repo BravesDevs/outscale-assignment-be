@@ -41,4 +41,6 @@ enum books_bookGenre {
   Novel
   Fiction
   Mystery
+  Travel
+  Life
 }
