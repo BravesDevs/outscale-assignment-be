@@ -4,6 +4,8 @@ export enum BookGenre {
   Mystery = "Mystery",
   SciFi = "Sci-Fi",
   Romance = "Romance",
+  Travel = "Travel",
+  Life = "Life",
 }
 
 export type Book = {
