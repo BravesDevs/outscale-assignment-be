@@ -112,8 +112,8 @@ INSERT INTO Books.books (bookId, bookName, bookPrice, bookGenre, yearPublished, 
 INSERT INTO Books.books (bookId, bookName, bookPrice, bookGenre, yearPublished, `isPublished?`) VALUES (7, 'Expedition Canada', 50, 'Travel', 2011, 1);
 INSERT INTO Books.books (bookId, bookName, bookPrice, bookGenre, yearPublished, `isPublished?`) VALUES (8, 'The American Dream', 40, 'Life', 2024, 1);
 
-INSERT INTO Books.users (userId, firstName, lastName, emailAddress, password) VALUES (4, 'Devang', 'Parekh', 'devangparekh2014@gmail.com', '$2b$10$kqJKxbhh4UOOX9jigaSLoOGepDClZYu2tfb8FYa5r2femp0Bu');
-INSERT INTO Books.users (userId, firstName, lastName, emailAddress, password) VALUES (5, 'Yushan', 'Cui', 'yushancui@apple.com', '$2b$10$TDWH.6ApEMF0814hsJsBIuLNNDd/IIgXtrRZXQ1eBhlpK194wK');
+INSERT INTO Books.users (userId, firstName, lastName, emailAddress, password) VALUES (4, 'Devang', 'P', 'devangparekh2014@gmail.com', '$2b$10$kqJKxbhh4UOOX9jigaSLoOGepDClZYu2tfb8FYa5r2femp0Bu');
+INSERT INTO Books.users (userId, firstName, lastName, emailAddress, password) VALUES (5, 'Sylvie', 'C', 'yushancui@apple.com', '$2b$10$TDWH.6ApEMF0814hsJsBIuLNNDd/IIgXtrRZXQ1eBhlpK194wK');
 
 
 INSERT INTO Books.bookAuthors (id, bookId, authorId) VALUES (4, 8, 4);
